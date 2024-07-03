@@ -6,9 +6,8 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #0F6A37;
     font-family: 'Roboto', Arial, sans-serif;
+    background-color: #0F6A37;
 }
 
 header {
@@ -21,24 +20,31 @@ header {
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
+    box-sizing: border-box;
 }
 
 .icon img {
-    height: 40px;
+    height: 50px;
+    width: 150px;
 }
 
 .header-buttons {
-    margin-right: 50px;
     display: flex;
     gap: 10px;
 }
 
 .header-buttons button {
     padding: 10px 15px;
+    background-color: #76BE43;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .header-buttons button:hover {
-
+    background-color: #5a9332;
 }
 
 main {
@@ -91,20 +97,84 @@ button:hover {
 
 /*------------------ TITLE ------------------ */
 .title-container {
-    background-color: blue;
-    height: 100vh; /* Full viewport height */
-    width: 100%;
     position: relative;
+    width: 100%;
+    height: 100vh;
     overflow: hidden;
 }
 
-.title-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* This ensures the image covers the container without stretching */
+.background-image {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+}
+
+.main-content {
+    max-width: 50%;
+}
+
+.main-content h1 {
+    font-size: 5vw;
+    color: #ffffff;
+    margin-bottom: 2vh;
+}
+
+.main-content h2 {
+    font-size: 2.5vw;
+    color: #ffffff;
+    margin-bottom: 3vh;
+}
+
+.cta-button {
+    padding: 1.5vh 3vw;
+    font-size: 1.8vw;
+    background-color: #76BE43;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #5a9332;
+}
+
+.bottom-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.bottom-text {
+    color: #ffffff;
+    margin-right: 20px;
+}
+
+.bottom-image img {
+    max-width: 100px;
+    height: auto;
 }
 
 /*------------------ STATS ------------------ */
@@ -135,7 +205,7 @@ button:hover {
 }
 
 .fact-container img {
-    max-width: 90%;
+    max-width: 50%;
     height: auto;
     margin-bottom: 10px;
 }
@@ -196,14 +266,13 @@ button:hover {
     width: 50%;
     height: auto;
     max-width: 200px;
-    margin-bottom: 20px;
 }
 
 .service-text {
+    margin-left: 10px;
+    margin-right: 10px;
     font-size: 1em;
-    margin-bottom: 20px;
     text-align: center;
-    padding: 10px;
 }
 
 /*------------------ ABOUT ------------------ */
@@ -237,32 +306,53 @@ button:hover {
 /*------------------ AREA ------------------ */
 .area-container {
     background-color: white;
-    height: auto;
     min-height: 50vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    text-align: center; /* Center text */
+    padding: 40px;
+    text-align: left;
 }
 
 .area-text-container {
-    max-width: 50%; /* Adjust the width as needed */
-    margin-right: 20px; /* Space between text and image */
+    flex: 1;
+    max-width: 50%;
+    margin-right: 40px;
+}
+
+.area-img-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .area-container img {
-    max-width: 50vh;
+    max-width: 100%;
     height: auto;
-    margin-top: 20px;
+}
+
+.area-container h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.area-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
 .area-container h3 {
+    font-size: 1.2em;
     color: rgb(138, 137, 137);
+    line-height: 1.5;
 }
 
 .area-container hr {
     width: 50%;
+    margin: 20px 0;
+    border: none;
+    border-top: 2px solid #76BE43;
 }
 
 
@@ -316,7 +406,6 @@ footer {
 
 /*------------------ SMALLER SCREENS ------------------ */
 @media (max-width: 768px) {
-    .title-container,
     .stats-container,
     .about-container,
     .images-container,
@@ -325,19 +414,69 @@ footer {
         min-height: 50vh;
     }
 
+    
+
     /*------------------ HEADER ------------------ */
     header {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+        margin-top: 5px;
+    }
+
+    .icon img {
+        height: 40px;
+        width: auto;
     }
 
     .header-buttons {
         margin-right: 0;
-        margin-top: 10px;
+        gap: 5px;
+    }
+
+    .header-buttons button {
+        padding: 8px 12px;
+        font-size: 0.9em;
     }
 
     main {
-        margin-top: 120px;
+        margin-top: 60px;
+    }
+
+    /*------------------ TITLE ------------------ */
+    .content-overlay {
+        padding: 30px;
+    }
+
+    .main-content {
+        max-width: 100%;
+    }
+
+    .main-content h1 {
+        font-size: 2em;
+    }
+
+    .main-content h2 {
+        font-size: 1.2em;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .bottom-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .bottom-text {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .bottom-image img {
+        max-width: 80px;
     }
 
     /*------------------ STATS ------------------ */
@@ -359,7 +498,7 @@ footer {
     }
 
     .service-image {
-        width: 40%;
+        width: 50%;
     }
 
     .service-text {
@@ -367,8 +506,11 @@ footer {
     }
 
     .quote-button {
-        padding: 10px 20px;
-        font-size: 14px;
+        font-size: 10px;
+    }
+
+    .services-container hr {
+        width: 50%;
     }
 
     /*------------------ IMAGES ------------------ */
@@ -378,17 +520,45 @@ footer {
 
     /*------------------ AREA ------------------ */
     .area-container {
-        flex-direction: column; /* Reverse the order for smaller screens */
-        text-align: left;
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
     }
 
-    .area-container hr {
+    .area-text-container {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .area-img-container {
         width: 100%;
     }
 
     .area-container img {
-        max-width: 100vh;
+        max-width: 100%;
+        margin-top: 0;
     }
+
+    .area-container h2 {
+        font-size: 1.3em;
+    }
+
+    .area-container h1 {
+        font-size: 2em;
+    }
+
+    .area-container h3 {
+        font-size: 1em;
+    }
+
+    .area-container hr {
+        width: 70%;
+        margin: 15px auto;
+    }
+
+
+
 
     /*------------------ FOOTER ------------------ */
     .footer-content {
