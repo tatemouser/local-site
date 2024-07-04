@@ -35,18 +35,24 @@ header {
     gap: 10px;
 }
 
-.header-buttons button {
+.header-buttons nav a {
+    display: inline-block;
     padding: 10px 15px;
     background-color: #76BE43;
-    color: white;
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.header-buttons button:hover {
+.header-buttons nav a:hover {
     background-color: #5a9332;
+}
+
+.header-buttons nav a:visited {
+    color: white; /* Ensure the color stays the same even after visiting the link */
 }
 
 main {
@@ -95,6 +101,15 @@ button:hover {
 
 .about-container, .stats-container, .services-container, .images-container {
     padding: 30px;
+}
+
+nav a {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 10px;
+    background-color: #76BE43;
 }
 
 /*------------------ TITLE ------------------ */
@@ -277,6 +292,8 @@ button:hover {
     text-align: center;
 }
 
+
+
 /*------------------ ABOUT ------------------ */
 .about-container {
     color: white;
@@ -451,9 +468,19 @@ footer {
         gap: 5px;
     }
 
-    .header-buttons button {
+    .header-buttons nav a {
         padding: 8px 12px;
         font-size: 0.9em;
+        color: white; /* Text color */
+        text-decoration: none; /* Remove underline */
+    }
+    
+    .header-buttons nav a:hover {
+        background-color: #5a9332;
+    }
+    
+    .header-buttons nav a:visited {
+        color: white; /* Ensure the color stays the same even after visiting the link */
     }
 
     main {
@@ -522,7 +549,7 @@ footer {
         font-size: 0.8em;
     }
 
-    .quote-button {
+    .quote-button nav a {
         font-size: 10px;
     }
 
@@ -533,6 +560,10 @@ footer {
     /*------------------ IMAGES ------------------ */
     .images-container {
         max-width: 80%;
+    }
+
+    .images-container hr {
+        width: 50%;
     }
 
     /*------------------ AREA ------------------ */
@@ -586,3 +617,28 @@ footer {
         margin-right: 0;
     }
 }
+
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    box-sizing: border-box;
+}
+

@@ -17,8 +17,12 @@
             <img src="/Assets/downloads/header1.png" alt="Icon">
         </div>
         <div class="header-buttons">
-            <button>Request Quote</button>
-            <button>Pay</button>
+            <nav>
+                <a href="quoteForm.html">Request Quote</a>
+            </nav>
+            <nav>
+                <a href="">Pay</a>
+            </nav>
         </div>
     </header>
     <main>
@@ -30,7 +34,9 @@
                 <div class="main-content">
                     <h1>The Grass is Greener</h1>
                     <h2>Family Owned Since 2020</h2>
-                    <button class="cta-button">Request Quote</button>
+                    <nav>
+                        <a href="quoteForm.html" class="cta-button">Request Quote</a>
+                    </nav>
                 </div>
                 <div class="bottom-content">
                     <div class="bottom-text">
@@ -66,7 +72,9 @@
                 <div class="circle-content">
                     <img src="/Assets/downloads/services1.png" alt="temp" class="service-image">
                     <p class="service-text">Know what's best for you and your lawn by submitting a quote request.</p>
-                    <button class="quote-button">REQUEST QUOTE</button>
+                    <nav>
+                        <a href="quoteForm.html" class="quote-button">Request Quote</a>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -74,19 +82,28 @@
         <div class="about-container"> <!-- TODO: Replace text with company, when stretch add image on right side -->
             <h3>WHO WE ARE</h3>
             <hr>
-            <h1>The Farison Lawn Care Guarantee</h1>
-            <p>All professional lawn treatment programs from Farison Lawn Care feature free service 
+            <h1>The  Lawn Care Guarantee</h1>
+            <p>All professional lawn treatment programs from Lawn Care feature free service 
                 calls and estimates. In addition, we are committed to using only the highest quality 
                 lawn and plant care products while also featuring fertilizer and spray programs that 
                 are completely guaranteed. We proudly serve across Louisville, Kentucky, and 
                 Clarksville, Indiana, along with neighboring areas such as Mt. Washington (KY), 
                 La Grange (KY), Prospect (KY), Goshen (KY), Sellersburg (IN), and Jeffersonville 
-                (IN). Farison Lawn Care has the highest regard for all of our customers; we want you 
+                (IN).  Lawn Care has the highest regard for all of our customers; we want you 
                 to be completely satisfied with all the services we provide.</p>
-            <h2>GIVE THE PROFESSIONALS AT FARISON LAWN CARE A CALL 
+            <h2>GIVE THE PROFESSIONALS AT LAWN CARE A CALL 
                 TODAY FOR A FREE AND FRIENDLY ESTIMATE.</h2>
-            <button>READ MORE</button>
+                
+            <button id="popupButton">READ MORE</button>
+
+            <div class="popup-overlay" id="popupOverlay">
+                <div class="popup-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero ac purus luctus, et porttitor urna dapibus. Sed nec purus non libero posuere placerat.</p>
+                    <button id="closeButton">Close</button>
+                </div>
+            </div>
         </div>
+
 
         <div class="images-container">
             <h1>Drag Slider Left or Right</h1>
@@ -139,6 +156,19 @@
             </footer>
         </div>
     </main>
+    <script>
+        const popupButton = document.getElementById('popupButton');
+        const popupOverlay = document.getElementById('popupOverlay');
+        const closeButton = document.getElementById('closeButton');
+    
+        popupButton.addEventListener('click', function() {
+            popupOverlay.style.display = 'flex';
+        });
+    
+        closeButton.addEventListener('click', function() {
+            popupOverlay.style.display = 'none';
+        });
+    </script>
     <script>
         $(document).ready(function () {
             baSlider("#ba-slider");
